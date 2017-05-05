@@ -1,0 +1,4 @@
+org\servicios\configuracion\servicio\ConfiguracionServiciosGeneralesImpl.class
+org\servicios\configuracion\controller\ConfiguracionController.class
+org\servicios\configuracion\servicio\ConfiguracionServiciosGenerales.class
+org\servicios\configuracion\entidades\CatalogoProceso.class
