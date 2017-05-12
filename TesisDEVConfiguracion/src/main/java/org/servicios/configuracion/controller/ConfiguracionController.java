@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/configuracion2")
+@RequestMapping("/configuracion3")
 public class ConfiguracionController {
 
 	@Autowired
