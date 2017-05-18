@@ -12,10 +12,10 @@
 
  <bean id="dataSource"
   class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-  <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-  <property name="url" value="jdbc:mysql://localhost:3306/employee_db" />
-  <property name="username" value="root" />
-  <property name="password" value="" />
+  <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+  <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+  <property name="username" value="system" />
+  <property name="password" value="Addiel123" />
  </bean>
 
  <bean id="sessionFactory"
@@ -23,7 +23,7 @@
   <property name="dataSource" ref="dataSource" />
   <property name="annotatedClasses">
    <list>
-    <value>org.servicios.configuracion.entidades.CatalogoProceso</value>
+    <value>org.servicios.configuracion.entidades.TipoEntrada</value>
    </list>
   </property>
   <property name="hibernateProperties">
@@ -42,6 +42,6 @@
  <bean id="persistenceExceptionTranslationPostProcessor"
   class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
-<!--  <bean id="dataDao" class="org.servicios.configuracion.dao"></bean> -->
- <bean id="generales" class="org.servicios.configuracion.servicio.ConfiguracionServiciosGeneralesImpl"></bean>
+<bean id="tipo" class="org.servicios.configuracion.dao.TipoEntradaDAOImpl"></bean>
+ <bean id="entradaService" class="org.servicios.configuracion.servicio.TipoEntradaServiceImpl"></bean>
 </beans>
