@@ -1,54 +1,59 @@
 package org.servicios.configuracion.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.servicios.configuracion.entidades.AltaSocio;
-import org.servicios.configuracion.entidades.ConfiguracionProducto;
-import org.servicios.configuracion.genericos.MetodosGenericos;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class AltaSocioDAOImpl implements AltaSocioDAO{
+public class AltaSocioDAOImpl implements IAltaSocioDAO{
 
 	@Autowired
 	SessionFactory sessionFactory;
 	Session session = null;
 	Transaction tx = null;
-	MetodosGenericos metodos;
 	
 	@Override
-	public boolean addSocio(AltaSocio altaSocio) throws Exception {
-		altaSocio.setFechaCreacion(new Date());
+	public boolean addAltaSocio(AltaSocio socio) throws Exception {
 		session = sessionFactory.openSession();
 		tx = session.beginTransaction();
-		session.save(altaSocio);
+		session.save(socio);
 		tx.commit();
 		session.close();
-
 		return false;
 	}
 
 	@Override
-	public AltaSocio getByIdSocio(String id) throws Exception {
+	public List<AltaSocio> getSocioList() throws Exception {
 		session = sessionFactory.openSession();
-		AltaSocio producto = (AltaSocio)session.load(AltaSocioDAOImpl.class, new String(id));
-		 tx = session.getTransaction();  
-		  session.beginTransaction();  
-		  tx.commit();  
-		return producto;
+		tx = session.beginTransaction();
+		List<AltaSocio> lista = session.createCriteria(AltaSocio.class).list();
+		tx.commit();
+		session.close();
+		return lista;
 	}
 
 	@Override
-	public List<AltaSocio> listSocio() throws Exception {
+	public AltaSocio getSocioById(long id) throws Exception {
 		session = sessionFactory.openSession();
-		tx = session.beginTransaction();
-		List<AltaSocio> lista = session.createCriteria(AltaSocioDAOImpl.class).list();
-		 tx.commit();  
-		  session.close();  
-		return lista;
+		AltaSocio alta = (AltaSocio)session.load(AltaSocio.class, id);
+		tx = session.getTransaction();
+		session.beginTransaction();
+		tx.commit();
+		return alta;
+	}
+
+	@Override
+	public AltaSocio getEliminaSocio(long id) throws Exception {
+		session = sessionFactory.openSession();
+		AltaSocio alta = (AltaSocio)session.load(AltaSocio.class, id);
+		alta.setTipo(new Long(0));
+		tx = session.getTransaction();
+		session.beginTransaction();
+		tx.commit();
+		return alta;
 	}
 
 }

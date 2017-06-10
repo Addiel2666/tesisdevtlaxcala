@@ -1,7 +1,15 @@
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\dao\AltaSocioDAOImpl.java
 C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\controller\ConfiguracionController.java
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\servicio\ISocioService.java
 C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\servicio\TipoEntradaServiceImpl.java
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\dao\IAltaSocioDAO.java
 C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\dao\TipoEntradaDAOImpl.java
 C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\dao\TipoEntradaDAO.java
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\servicio\SocioServiceImpl.java
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\client\RestClientConf.java
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\entidades\AltaSocio.java
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\controller\SocioController.java
 C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\entidades\Status.java
 C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\entidades\TipoEntrada.java
 C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\servicio\TipoEntradaService.java
+C:\Users\zony_\Git\tesisdevtlaxcala\TesisDEVConfiguracion\src\main\java\org\servicios\configuracion\genericos\MetodosGenericos.java

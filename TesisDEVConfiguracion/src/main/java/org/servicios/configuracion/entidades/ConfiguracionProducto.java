@@ -5,12 +5,9 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author zony_
  */
 @Entity
-@Table(name = "C##TESIS.CONFIGURACION_PRODUCTO")
+@Table(name = "CONFIGURACION_PRODUCTO")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ConfiguracionProducto.findAll", query = "SELECT c FROM ConfiguracionProducto c")
@@ -34,7 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "ConfiguracionProducto.findBySbrProducto", query = "SELECT c FROM ConfiguracionProducto c WHERE c.sbrProducto = :sbrProducto")
     , @NamedQuery(name = "ConfiguracionProducto.findByFechaCreacion", query = "SELECT c FROM ConfiguracionProducto c WHERE c.fechaCreacion = :fechaCreacion")
     , @NamedQuery(name = "ConfiguracionProducto.findByFechaVigenciaInicio", query = "SELECT c FROM ConfiguracionProducto c WHERE c.fechaVigenciaInicio = :fechaVigenciaInicio")
-    , @NamedQuery(name = "ConfiguracionProducto.findByFechaVidenciaFin", query = "SELECT c FROM ConfiguracionProducto c WHERE c.fechaVidenciaFin = :fechaVidenciaFin")})
+    , @NamedQuery(name = "ConfiguracionProducto.findByFechaVidenciaFin", query = "SELECT c FROM ConfiguracionProducto c WHERE c.fechaVidenciaFin = :fechaVidenciaFin")
+    , @NamedQuery(name = "ConfiguracionProducto.findByActivo", query = "SELECT c FROM ConfiguracionProducto c WHERE c.activo = :activo")})
 public class ConfiguracionProducto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,9 +47,7 @@ public class ConfiguracionProducto implements Serializable {
     private String nombreProducto;
     @Size(max = 100)
     @Column(name = "NOMBRE_SOCIO")
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="NOMBRE_SOCIO")
-    private AltaSocio nombreSocio;
+    private String nombreSocio;
     @Size(max = 100)
     @Column(name = "DESCRIPCIO_INSTITUCION")
     private String descripcioInstitucion;
@@ -67,6 +63,8 @@ public class ConfiguracionProducto implements Serializable {
     @Size(max = 20)
     @Column(name = "FECHA_VIDENCIA_FIN")
     private String fechaVidenciaFin;
+    @Column(name = "ACTIVO")
+    private Short activo;
 
     public ConfiguracionProducto() {
     }
@@ -91,11 +89,11 @@ public class ConfiguracionProducto implements Serializable {
         this.nombreProducto = nombreProducto;
     }
 
-    public AltaSocio getNombreSocio() {
+    public String getNombreSocio() {
         return nombreSocio;
     }
 
-    public void setNombreSocio(AltaSocio nombreSocio) {
+    public void setNombreSocio(String nombreSocio) {
         this.nombreSocio = nombreSocio;
     }
 
@@ -139,6 +137,14 @@ public class ConfiguracionProducto implements Serializable {
         this.fechaVidenciaFin = fechaVidenciaFin;
     }
 
+    public Short getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Short activo) {
+        this.activo = activo;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -165,3 +171,4 @@ public class ConfiguracionProducto implements Serializable {
     }
     
 }
+

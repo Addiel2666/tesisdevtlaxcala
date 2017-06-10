@@ -24,6 +24,7 @@
   <property name="annotatedClasses">
    <list>
     <value>org.servicios.configuracion.entidades.TipoEntrada</value>
+    <value>org.servicios.configuracion.entidades.AltaSocio</value>
    </list>
   </property>
   <property name="hibernateProperties">
@@ -43,5 +44,9 @@
   class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 <bean id="tipo" class="org.servicios.configuracion.dao.TipoEntradaDAOImpl"></bean>
- <bean id="entradaService" class="org.servicios.configuracion.servicio.TipoEntradaServiceImpl"></bean>
+<bean id="aSocio" class="org.servicios.configuracion.dao.AltaSocioDAOImpl"></bean>
+
+<bean id="entradaService" class="org.servicios.configuracion.servicio.TipoEntradaServiceImpl"></bean>
+<bean id="service" class="org.servicios.configuracion.servicio.SocioServiceImpl"></bean>
+
 </beans>

@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author zony_
  */
 @Entity
-@Table(name = "ALTA_SOCIO")
+@Table(name = "C##TESIS.ALTA_SOCIO")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "AltaSocio.findAll", query = "SELECT a FROM AltaSocio a")
@@ -32,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "AltaSocio.findByFechaCreacion", query = "SELECT a FROM AltaSocio a WHERE a.fechaCreacion = :fechaCreacion")
     , @NamedQuery(name = "AltaSocio.findByFechaVigenciaInicio", query = "SELECT a FROM AltaSocio a WHERE a.fechaVigenciaInicio = :fechaVigenciaInicio")
     , @NamedQuery(name = "AltaSocio.findByFechaVigenciaFinal", query = "SELECT a FROM AltaSocio a WHERE a.fechaVigenciaFinal = :fechaVigenciaFinal")
-    , @NamedQuery(name = "AltaSocio.findByClaveSocio", query = "SELECT a FROM AltaSocio a WHERE a.claveSocio = :claveSocio")})
+    , @NamedQuery(name = "AltaSocio.findByClaveSocio", query = "SELECT a FROM AltaSocio a WHERE a.claveSocio = :claveSocio")
+    , @NamedQuery(name = "AltaSocio.findByTipo", query = "SELECT a FROM AltaSocio a WHERE a.tipo = :tipo")})
 public class AltaSocio implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,7 +43,6 @@ public class AltaSocio implements Serializable {
     private String id;
     @Size(max = 100)
     @Column(name = "NOMBRE_SOCIO")
-    @OneToOne(mappedBy = "nombreSocio")
     private String nombreSocio;
     @Size(max = 150)
     @Column(name = "DESCRIPCION_SOCIO")
@@ -61,6 +59,8 @@ public class AltaSocio implements Serializable {
     @Size(max = 20)
     @Column(name = "CLAVE_SOCIO")
     private String claveSocio;
+    @Column(name = "TIPO")
+    private Long tipo;
 
     public AltaSocio() {
     }
@@ -125,6 +125,14 @@ public class AltaSocio implements Serializable {
         this.claveSocio = claveSocio;
     }
 
+    public Long getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Long tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -148,6 +156,5 @@ public class AltaSocio implements Serializable {
     @Override
     public String toString() {
         return "com.mycompany.mavenproject2.AltaSocio[ id=" + id + " ]";
-    }
-    
+    }    
 }

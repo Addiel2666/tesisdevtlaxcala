@@ -1,0 +1,15 @@
+org\servicios\configuracion\entidades\AltaSocio.class
+org\servicios\configuracion\servicio\SocioServiceImpl.class
+org\servicios\configuracion\controller\SocioController.class
+org\servicios\configuracion\dao\TipoEntradaDAO.class
+org\servicios\configuracion\entidades\TipoEntrada.class
+org\servicios\configuracion\servicio\ISocioService.class
+org\servicios\configuracion\dao\AltaSocioDAOImpl.class
+org\servicios\configuracion\client\RestClientConf.class
+org\servicios\configuracion\genericos\MetodosGenericos.class
+org\servicios\configuracion\servicio\TipoEntradaService.class
+org\servicios\configuracion\entidades\Status.class
+org\servicios\configuracion\servicio\TipoEntradaServiceImpl.class
+org\servicios\configuracion\controller\ConfiguracionController.class
+org\servicios\configuracion\dao\IAltaSocioDAO.class
+org\servicios\configuracion\dao\TipoEntradaDAOImpl.class

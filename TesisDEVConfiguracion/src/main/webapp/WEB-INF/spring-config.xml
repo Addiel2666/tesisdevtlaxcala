@@ -24,6 +24,10 @@
   <property name="annotatedClasses">
    <list>
     <value>org.servicios.configuracion.entidades.TipoEntrada</value>
+    <value>org.servicios.configuracion.entidades.AltaSocio</value>
+    <value>org.servicios.configuracion.entidades.ConfiguracionProducto</value>
+    <value>org.servicios.configuracion.entidades.ConfiguracionSeguroParte</value>
+    
    </list>
   </property>
   <property name="hibernateProperties">
@@ -43,5 +47,14 @@
   class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 <bean id="tipo" class="org.servicios.configuracion.dao.TipoEntradaDAOImpl"></bean>
- <bean id="entradaService" class="org.servicios.configuracion.servicio.TipoEntradaServiceImpl"></bean>
+<bean id="aSocio" class="org.servicios.configuracion.dao.AltaSocioDAOImpl"></bean>
+<bean id="cProducto" class="org.servicios.configuracion.dao.ConfProductoDAOImpl"></bean>
+<bean id="imSeguro" class="org.servicios.configuracion.dao.ConfiguracionSeguroDAOImpl"></bean>
+
+
+<bean id="entradaService" class="org.servicios.configuracion.servicio.TipoEntradaServiceImpl"></bean>
+<bean id="service" class="org.servicios.configuracion.servicio.SocioServiceImpl"></bean>
+<bean id="serviceP" class="org.servicios.configuracion.servicio.ConfProductoServiceImpl"></bean>
+<bean id="serviceCfS" class="org.servicios.configuracion.servicio.ConfiguracionSeguroServiceImpl"></bean>
+
 </beans>
