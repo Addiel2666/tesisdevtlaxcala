@@ -19,23 +19,23 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  *
  * @author zony_
  */
 @Entity
 @Table(name = "C##TESIS.TIPO_ENTRADA")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TipoEntrada.findAll", query = "SELECT t FROM TipoEntrada t")
-    , @NamedQuery(name = "TipoEntrada.findById", query = "SELECT t FROM TipoEntrada t WHERE t.id = :id")
-    , @NamedQuery(name = "TipoEntrada.findByCodigo", query = "SELECT t FROM TipoEntrada t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "TipoEntrada.findByExtension", query = "SELECT t FROM TipoEntrada t WHERE t.extension = :extension")
-    , @NamedQuery(name = "TipoEntrada.findByDescripcion", query = "SELECT t FROM TipoEntrada t WHERE t.descripcion = :descripcion")})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class TipoEntrada implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
+   
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3875134027718935212L;
+	@Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")

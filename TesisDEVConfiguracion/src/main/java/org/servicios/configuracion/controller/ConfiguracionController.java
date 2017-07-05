@@ -2,6 +2,9 @@ package org.servicios.configuracion.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+
 import org.servicios.configuracion.entidades.Status;
 import org.servicios.configuracion.entidades.TipoEntrada;
 //import org.servicios.configuracion.servicio.AltaSocioService;
@@ -13,10 +16,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;  
 import org.springframework.http.MediaType;  
 
-@Controller
+@RestController
 @RequestMapping("/configuracion")
 public class ConfiguracionController {
 
@@ -27,7 +31,8 @@ public class ConfiguracionController {
 //	@Autowired
 //	AltaSocioService altaSocioSer;
 	
-	@RequestMapping(value="/creacion_entrada_archivos",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)  
+	@RequestMapping(value="/creacion_entrada_archivos",method = RequestMethod.POST)  
+	@Consumes(MediaType.APPLICATION_JSON_VALUE)
 public @ResponseBody Status addTipoEntrada(@RequestBody TipoEntrada entrada){
 		try {
 			entradaService.addConfPr(entrada);
@@ -36,7 +41,8 @@ public @ResponseBody Status addTipoEntrada(@RequestBody TipoEntrada entrada){
 			  return new Status(0, e.toString());  
 		}
 }
-	 @RequestMapping(value = "/entrada/{id}", method = RequestMethod.GET)  
+	 @RequestMapping(value = "/entrada/{id}", method = RequestMethod.GET)
+	 @Produces(MediaType.APPLICATION_JSON_VALUE)
 	 public @ResponseBody  TipoEntrada getTipoEntrada(@PathVariable("id")long id){
 		TipoEntrada tipoEntrada = null;
 		 try {

@@ -5,7 +5,9 @@ import java.util.List;
 import org.servicios.configuracion.dao.TipoEntradaDAO;
 import org.servicios.configuracion.entidades.TipoEntrada;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TipoEntradaServiceImpl implements TipoEntradaService{
 
 	@Autowired

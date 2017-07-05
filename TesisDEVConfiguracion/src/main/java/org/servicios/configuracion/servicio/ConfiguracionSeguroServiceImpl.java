@@ -5,7 +5,9 @@ import java.util.List;
 import org.servicios.configuracion.dao.IConfiguracionSeguroDAO;
 import org.servicios.configuracion.entidades.ConfiguracionSeguroParte;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ConfiguracionSeguroServiceImpl implements IConfiguracionSeguroService{
 
 	@Autowired

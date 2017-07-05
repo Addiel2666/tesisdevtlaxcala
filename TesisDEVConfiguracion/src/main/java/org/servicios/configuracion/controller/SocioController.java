@@ -2,6 +2,10 @@ package org.servicios.configuracion.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+
+import org.apache.log4j.Logger;
 import org.servicios.configuracion.entidades.AltaSocio;
 import org.servicios.configuracion.entidades.Status;
 import org.servicios.configuracion.entidades.TipoEntrada;
@@ -17,13 +21,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/socio")
+@Produces("application/json")
 public class SocioController {
-
+	private final static Logger log = Logger.getLogger(SocioController.class);
 	@Autowired
 	ISocioService service;
 	
 	@RequestMapping(value="/alta",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	 @Consumes("application/json")
 	public @ResponseBody Status addSocio(@RequestBody AltaSocio alta){
+		log.info("Entra aca");
 		try {
 			service.addAltaSocio(alta);
 			return new Status(1,"Creacion finalizada");
@@ -45,7 +52,7 @@ public class SocioController {
 	}
 	
 	@RequestMapping(value = "/actualizar/{id}", method = RequestMethod.GET)
-	public @ResponseBody AltaSocio getIdSocio(@PathVariable("id")long id){
+	public @ResponseBody AltaSocio getIdSocio(@PathVariable("id")String id){
 		AltaSocio entradaUp = null;
 		try {
 			entradaUp = service.getSocioById(id);
@@ -56,7 +63,7 @@ public class SocioController {
 	}
 	
 	@RequestMapping(value = "/eliminacion/{id}", method = RequestMethod.GET)
-	public @ResponseBody AltaSocio getIdElimSocio(@PathVariable("id")long id){
+	public @ResponseBody AltaSocio getIdElimSocio(@PathVariable("id")String id){
 		AltaSocio entradaUp = null;
 		try {
 			entradaUp = service.getSocioById(id);

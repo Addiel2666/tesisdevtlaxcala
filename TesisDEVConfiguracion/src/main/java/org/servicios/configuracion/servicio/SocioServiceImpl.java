@@ -5,7 +5,9 @@ import java.util.List;
 import org.servicios.configuracion.dao.IAltaSocioDAO;
 import org.servicios.configuracion.entidades.AltaSocio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SocioServiceImpl implements ISocioService{
 
 	@Autowired
@@ -24,13 +26,13 @@ public class SocioServiceImpl implements ISocioService{
 	}
 
 	@Override
-	public AltaSocio getSocioById(long id) throws Exception {
+	public AltaSocio getSocioById(String id) throws Exception {
 		// TODO Auto-generated method stub
 		return aSocio.getSocioById(id);
 	}
 
 	@Override
-	public AltaSocio getEliminaSocio(long id) throws Exception {
+	public AltaSocio getEliminaSocio(String id) throws Exception {
 		// TODO Auto-generated method stub
 		return aSocio.getEliminaSocio(id);
 	}

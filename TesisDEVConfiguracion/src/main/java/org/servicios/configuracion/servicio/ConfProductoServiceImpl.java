@@ -5,7 +5,9 @@ import java.util.List;
 import org.servicios.configuracion.dao.IConfProductoDAO;
 import org.servicios.configuracion.entidades.ConfiguracionProducto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ConfProductoServiceImpl implements IConfProductoService{
 
 	@Autowired

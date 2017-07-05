@@ -15,27 +15,29 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
  *
  * @author zony_
  */
+
 @Entity
 @Table(name = "C##TESIS.ALTA_SOCIO")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "AltaSocio.findAll", query = "SELECT a FROM AltaSocio a")
-    , @NamedQuery(name = "AltaSocio.findById", query = "SELECT a FROM AltaSocio a WHERE a.id = :id")
-    , @NamedQuery(name = "AltaSocio.findByNombreSocio", query = "SELECT a FROM AltaSocio a WHERE a.nombreSocio = :nombreSocio")
-    , @NamedQuery(name = "AltaSocio.findByDescripcionSocio", query = "SELECT a FROM AltaSocio a WHERE a.descripcionSocio = :descripcionSocio")
-    , @NamedQuery(name = "AltaSocio.findByFechaCreacion", query = "SELECT a FROM AltaSocio a WHERE a.fechaCreacion = :fechaCreacion")
-    , @NamedQuery(name = "AltaSocio.findByFechaVigenciaInicio", query = "SELECT a FROM AltaSocio a WHERE a.fechaVigenciaInicio = :fechaVigenciaInicio")
-    , @NamedQuery(name = "AltaSocio.findByFechaVigenciaFinal", query = "SELECT a FROM AltaSocio a WHERE a.fechaVigenciaFinal = :fechaVigenciaFinal")
-    , @NamedQuery(name = "AltaSocio.findByClaveSocio", query = "SELECT a FROM AltaSocio a WHERE a.claveSocio = :claveSocio")
-    , @NamedQuery(name = "AltaSocio.findByTipo", query = "SELECT a FROM AltaSocio a WHERE a.tipo = :tipo")})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonAutoDetect(fieldVisibility = org.codehaus.jackson.annotate.JsonAutoDetect.Visibility.ANY)
 public class AltaSocio implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
+   
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2974797236223607623L;
+	@Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)

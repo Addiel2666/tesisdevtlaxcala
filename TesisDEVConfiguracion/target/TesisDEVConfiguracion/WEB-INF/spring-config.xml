@@ -25,6 +25,11 @@
    <list>
     <value>org.servicios.configuracion.entidades.TipoEntrada</value>
     <value>org.servicios.configuracion.entidades.AltaSocio</value>
+    <value>org.servicios.configuracion.entidades.ConfiguracionProducto</value>
+    <value>org.servicios.configuracion.entidades.ConfiguracionSeguroParte</value>
+    <value>org.servicios.configuracion.entidades.Prueba</value>
+    <value>org.servicios.configuracion.entidades.ConfiguracionParte1</value>
+    
    </list>
   </property>
   <property name="hibernateProperties">
@@ -45,8 +50,18 @@
 
 <bean id="tipo" class="org.servicios.configuracion.dao.TipoEntradaDAOImpl"></bean>
 <bean id="aSocio" class="org.servicios.configuracion.dao.AltaSocioDAOImpl"></bean>
+<bean id="cProducto" class="org.servicios.configuracion.dao.ConfProductoDAOImpl"></bean>
+<bean id="imSeguro" class="org.servicios.configuracion.dao.ConfiguracionSeguroDAOImpl"></bean>
+<bean id="ing" class="org.servicios.configuracion.dao.AltaPruebaImpl"></bean>
+<bean id="configSeguro" class="org.servicios.configuracion.dao.ConfiguracionSeguroImplPDAO"></bean>
+
 
 <bean id="entradaService" class="org.servicios.configuracion.servicio.TipoEntradaServiceImpl"></bean>
 <bean id="service" class="org.servicios.configuracion.servicio.SocioServiceImpl"></bean>
+<bean id="serviceP" class="org.servicios.configuracion.servicio.ConfProductoServiceImpl"></bean>
+<bean id="serviceCfS" class="org.servicios.configuracion.servicio.ConfiguracionSeguroServiceImpl"></bean>
+<bean id="ingresaPS" class="org.servicios.configuracion.servicio.AltaPruebaImpl"></bean>
+<bean id="servicio" class="org.servicios.configuracion.servicio.ConfiguracionSeguroServicioImpl"></bean>
+
 
 </beans>

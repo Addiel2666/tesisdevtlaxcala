@@ -27,6 +27,21 @@ public class RestClientConf {
 		}
 	}
 	
+	public void addConf(){
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		RestTemplate restTemplate = new RestTemplate();
+		String url = " http://localhost:8080/TesisDEVConfiguracion/configuracion/creacion_entrada_archivos";
+		TipoEntrada entrada = new TipoEntrada();
+		entrada.setExtension("s");
+		entrada.setDescripcion("dd");
+		entrada.setCodigo("dd");
+entrada.setId(new Long(2));
+		HttpEntity<TipoEntrada> requestEntity = new HttpEntity<TipoEntrada>(entrada,headers);
+		URI uri = restTemplate.postForLocation(url, requestEntity);
+		System.out.println("Se hace insercion "+uri.getPath());
+	}
+	
 	public void addSocio(){
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -42,14 +57,17 @@ public class RestClientConf {
 		objAlta.setFechaVigenciaFinal(new Date());
 		objAlta.setFechaVigenciaInicio(new Date());
 		HttpEntity<AltaSocio> requestEntity = new HttpEntity<AltaSocio>(objAlta,headers);
+		
 		URI uri = restTemplate.postForLocation(url, requestEntity);
-		System.out.println("Se hace insercion "+uri.getPath());
+		
+		System.out.println(uri.getPath());
 	}
 	
 	public static void main(String[] args) {
 		RestClientConf util = new RestClientConf();
-		util.getListaConfiguraciones();
-		util.addSocio();
+//		util.getListaConfiguraciones();
+	util.addSocio();
+//	util.addConf();
 
 	}
 

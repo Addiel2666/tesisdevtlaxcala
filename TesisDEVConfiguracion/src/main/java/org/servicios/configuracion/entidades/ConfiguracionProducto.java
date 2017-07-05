@@ -20,19 +20,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author zony_
  */
 @Entity
-@Table(name = "CONFIGURACION_PRODUCTO")
+@Table(name = "C##TESIS.CONFIGURACION_PRODUCTO")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConfiguracionProducto.findAll", query = "SELECT c FROM ConfiguracionProducto c")
-    , @NamedQuery(name = "ConfiguracionProducto.findById", query = "SELECT c FROM ConfiguracionProducto c WHERE c.id = :id")
-    , @NamedQuery(name = "ConfiguracionProducto.findByNombreProducto", query = "SELECT c FROM ConfiguracionProducto c WHERE c.nombreProducto = :nombreProducto")
-    , @NamedQuery(name = "ConfiguracionProducto.findByNombreSocio", query = "SELECT c FROM ConfiguracionProducto c WHERE c.nombreSocio = :nombreSocio")
-    , @NamedQuery(name = "ConfiguracionProducto.findByDescripcioInstitucion", query = "SELECT c FROM ConfiguracionProducto c WHERE c.descripcioInstitucion = :descripcioInstitucion")
-    , @NamedQuery(name = "ConfiguracionProducto.findBySbrProducto", query = "SELECT c FROM ConfiguracionProducto c WHERE c.sbrProducto = :sbrProducto")
-    , @NamedQuery(name = "ConfiguracionProducto.findByFechaCreacion", query = "SELECT c FROM ConfiguracionProducto c WHERE c.fechaCreacion = :fechaCreacion")
-    , @NamedQuery(name = "ConfiguracionProducto.findByFechaVigenciaInicio", query = "SELECT c FROM ConfiguracionProducto c WHERE c.fechaVigenciaInicio = :fechaVigenciaInicio")
-    , @NamedQuery(name = "ConfiguracionProducto.findByFechaVidenciaFin", query = "SELECT c FROM ConfiguracionProducto c WHERE c.fechaVidenciaFin = :fechaVidenciaFin")
-    , @NamedQuery(name = "ConfiguracionProducto.findByActivo", query = "SELECT c FROM ConfiguracionProducto c WHERE c.activo = :activo")})
 public class ConfiguracionProducto implements Serializable {
 
     private static final long serialVersionUID = 1L;
